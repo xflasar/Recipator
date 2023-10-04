@@ -1,0 +1,11 @@
+@model Recipator.Models.Recipe
+
+<div class="recipe-view">
+  <h3>@Model.Title</h3>
+  <p>@Model.Ingredients</p>
+  <p>@Model.Instructions</p>
+  <button class="edit-button" onclick="location.href='@Url.Action("Edit", "Recipe")'">Edit</button>
+  <button class="delete-button" data-id=@Model.Id>Delete Item</button>
+</div>
+
+<script src="~/js/Recipe/Recipe.js"></script>

@@ -1,0 +1,12 @@
+h1 {
+  text-align: center;
+}
+
+.recipe-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  border-radius: 10px;
+}
+

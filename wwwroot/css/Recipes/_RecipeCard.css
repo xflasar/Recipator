@@ -1,0 +1,47 @@
+/* Style for the recipe card container */
+.recipe-card {
+  position: relative;
+  width: 330px;
+  height: 330px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Style for the background image */
+.recipe-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* Style for the cloudy footer */
+.recipe-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20%; 
+  background-color: rgba(255, 255, 255, 0.7); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+/* Style for the title in the footer */
+.recipe-footer h3 {
+  margin: 0;
+  text-align: center;
+}
+
+/* Hover effect for recipe items */
+.recipe-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}

@@ -1,0 +1,21 @@
+@model Recipator.Models.Recipe
+<link rel="stylesheet" href="~/css/Recipe/create.css" asp-append-version="true" />
+
+<h1>Create Recipe</h1>
+
+<form asp-action="Create_Recipe" method="post">
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Ingredients"></label>
+        <textarea asp-for="Ingredients" class="form-control" rows="4"></textarea>
+    </div>
+    <div class="form-group">
+        <label asp-for="Instructions"></label>
+        <textarea asp-for="Instructions" class="form-control" rows="6"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>

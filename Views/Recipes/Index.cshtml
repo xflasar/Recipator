@@ -1,0 +1,15 @@
+@model List<Recipator.Models.Recipe>
+<link rel="stylesheet" href="~/css/Recipes/Recipes.css" asp-append-version="true" />
+
+<h1>Recipes</h1>
+
+  <div class="recipe-container">
+    @foreach (var recipe in Model)
+    {
+      await Html.RenderPartialAsync("_RecipeCard", recipe);
+    }
+  </div>
+      
+<input type="button" value="Create" onclick="location.href='@Url.Action("Create")'" />
+
+<script src="~/js/Recipes/Recipes.js"></script>

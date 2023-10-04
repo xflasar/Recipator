@@ -1,0 +1,69 @@
+.navbar {
+  border-radius: 0 0 100px 100px;
+  background-color: #CAC7C7;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+
+  .container-fluid {
+    position: relative;
+    left: 50px;
+    width: calc(100vw - 100px);
+    margin: 0;
+
+    .account-controller {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 20px;
+      height: 30px;
+      
+      .account-controller-signin-container {
+        padding: 5px;
+        border-radius: 20%;
+      }
+
+      .account-controller-signin-container:hover {
+        background-color: rgba(0,0,0,0.2);
+      }
+
+      .account-controller-signup-container {
+        padding: 5px;
+        border-radius: 20%;
+      }
+      
+      .account-controller-signup-container:hover {
+        background-color: rgba(0,0,0,0.2);
+      }
+    }
+  }
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+}
+.navbar-brand {
+  font-size: 2.7rem !important;
+}
+.navbar-middle {
+  position: relative;
+  top: 0.5rem
+
+}
+.navbar-middle a{
+  font-size: 16px;
+  text-align: center;
+}
+.navbar-middle a:hover {
+  text-decoration: underline;
+}
