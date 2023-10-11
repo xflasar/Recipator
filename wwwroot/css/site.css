@@ -1,3 +1,4 @@
+/* Typography Styles */
 html {
   font-size: 14px;
 }
@@ -8,37 +9,56 @@ html {
   }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+/* Focus Styles */
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
+/* Layout Styles */
 
 body {
-  width: 100vw;
-  height: 100vh;
-
-  a {
-    text-decoration: none !important;
-  }
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  min-height: 100vh;
 }
 
+/* Links Styles */
+body a {
+  text-decoration: none !important;
+}
+
+/* Header Styles */
 header {
+  position: sticky;
+  top: 0;
   height: 100px;
+  z-index: 100;
 }
 
+/* Main Content Styles */
 main {
   position: relative;
   width: 90vw;
-  height: calc(100vh - 100px - 50px);
+  min-height: calc(100vh - 100px - 50px);
   left: 5vw;
+  flex: 1;
+  overflow: auto;
+  overflow-x: hidden;
 }
 
+/* Footer Styles */
 footer {
-  position: absolute;
+  position: relative;
   bottom: 0;
   left: 25%;
   width: 50vw;
@@ -46,16 +66,19 @@ footer {
   display: flex;
   align-items: center;
   background-color: #CAC7C7;
+  box-shadow: 0 -7px 10px 0 rgba(51, 51, 51, 0.5);
   border-radius: 100px 100px 0 0;
-
-  .container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-  }
 }
 
+/* Footer Container Styles */
+footer .container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+/* General Links Styles */
 a {
   text-decoration: none;
 }

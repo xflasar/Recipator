@@ -1,9 +1,20 @@
 @model Recipator.Models.Recipe
+<link rel="stylesheet" href="~/css/Recipe/Recipe.css" asp-append-version="true" />
 
 <div class="recipe-view">
-  <h3>@Model.Title</h3>
-  <p>@Model.Ingredients</p>
-  <p>@Model.Instructions</p>
+    <div class="recipe-view-header">
+        <img src="@Model.Image"></img>
+        
+        <h3>@Model.Title</h3>
+    </div>
+    <div class="recipe-view-main">
+        <div class="recipe-view-main-ingredients">
+            <p>@Model.Ingredients</p>
+        </div>
+        <div class="recipe-view-main-instructions">
+            <p>@Model.Instructions</p>
+        </div>
+    </div>
   <button class="edit-button" onclick="location.href='@Url.Action("Edit", "Recipe")'">Edit</button>
   <button class="delete-button" data-id=@Model.Id>Delete Item</button>
 </div>

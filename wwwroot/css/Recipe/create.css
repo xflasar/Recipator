@@ -1,5 +1,19 @@
-main {
+#ingredientsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 10rem);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 1rem;
+}
+
+#ingredientsContainer .ingredient-row {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 8rem;
+}
+
+#ingredientsContainer .ingredient-row .ingredient-input {
+  width: 8rem;
+}
+
+#addIngredient {
+  margin-top: 1rem;
 }

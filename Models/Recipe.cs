@@ -10,7 +10,8 @@ namespace Recipator.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Title { get; set; }
-        public string Ingredients { get; set; }
+        public List<Ingredient> Ingredients { get; set; }
         public string Instructions { get; set; }
+        public string Image {get; set;}
     }
 }

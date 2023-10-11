@@ -4,6 +4,7 @@ $(".recipe-container").on("click", ".recipe-item", function () {
     Title: $(this).data('title'),
     Ingredients: $(this).data('ingredients'),
     Instructions: $(this).data('instructions'),
+    Image: $(this).data('image'),
   }
 
   $.ajax({

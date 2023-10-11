@@ -9,6 +9,7 @@ namespace Recipator.Data
             : base(options) { }
 
         public DbSet<Recipe> Recipes { get; set; }
+        public DbSet<Ingredient> Ingredients { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -18,6 +19,11 @@ namespace Recipator.Data
             modelBuilder.Entity<Recipe>()
             .Property(r => r.Id)
             .UseIdentityColumn();
+
+            modelBuilder.Entity<Recipe>()
+            .HasMany(r => r.Ingredients)
+            .WithOne(i => i.Recipe)
+            .HasForeignKey(i => i.RecipeId);
         }
     }
 }
