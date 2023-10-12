@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Recipator.Models;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Text.Json;
 
 namespace Recipator.Controllers
 {
@@ -11,6 +12,7 @@ namespace Recipator.Controllers
         {
             if (TempData["recipe"] != null)
             {
+                
                 Recipe recipe = System.Text.Json.JsonSerializer.Deserialize<Recipe>(
                     TempData["recipe"].ToString()
                 );
@@ -23,11 +25,27 @@ namespace Recipator.Controllers
                 return View();
             }
         }
+        public class RecipeFormData {
+            public int Id { get; set; }
+            public string Title { get; set; }
+            public List<Ingredient> Ingredients { get; set; }
+            public string Instructions { get; set; }
+            public string Image { get; set; }
+        }
 
         [HttpPost]
-        public IActionResult RecipeRedirect([FromBody] Recipe recipe)
+        public IActionResult RecipeRedirect([FromBody] RecipeFormData recipe)
         {
-            TempData["recipe"] = System.Text.Json.JsonSerializer.Serialize(recipe);
+            Recipe recipeNew = new Recipe
+            (
+                int.Parse(recipe.Id.ToString()),
+                recipe.Title,
+                recipe.Ingredients,
+                recipe.Instructions,
+                recipe.Image
+            );
+            
+            TempData["recipe"] = System.Text.Json.JsonSerializer.Serialize(recipeNew);
 
             return RedirectToAction("Index", "Recipe");
         }
@@ -41,9 +59,15 @@ namespace Recipator.Controllers
             return View(recipe);
         }
 
+        public class serializedIngredient {}
+
         [HttpPost]
-        public IActionResult Edit(Recipe recipe)
+        public IActionResult Edit(Recipe recipe, string ingredients)
         {
+            Console.WriteLine(ingredients);
+            recipe.Ingredients = System.Text.Json.JsonSerializer.Deserialize<List<Ingredient>>(ingredients);
+            Console.WriteLine(System.Text.Json.JsonSerializer.Serialize(recipe));
+            //return null;
             if (ModelState.IsValid)
             {
                 TempData["recipe"] = System.Text.Json.JsonSerializer.Serialize(recipe);

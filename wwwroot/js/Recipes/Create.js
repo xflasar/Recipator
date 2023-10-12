@@ -14,4 +14,18 @@ $(document).ready(function() {
     ingredientCounter--;
   })
 
+  $("#recipeForm").submit(function () {
+    console.log('Submitings')
+    ingredients = [];
+    // Collect ingredient values
+    $("#ingredientsContainer .ingredient-input").each(function () {
+      console.log($(this).val());
+        ingredients.push($(this).val());
+    });
+
+    // Set the ingredients as a comma-separated string in the hidden input field
+    $("input[name='ingredients']").val(ingredients.join(','));
+
+    return true; // Proceed with the form submission
+  });
 })

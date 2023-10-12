@@ -7,6 +7,8 @@ $(".recipe-container").on("click", ".recipe-item", function () {
     Image: $(this).data('image'),
   }
 
+  console.log(item);
+
   $.ajax({
       url: "/Recipe/RecipeRedirect",
       type: "POST",

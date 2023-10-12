@@ -1,7 +1,7 @@
 @model Recipator.Models.Recipe
 <link rel="stylesheet" href="~/css/Recipes/_RecipeCard.css" asp-append-version="true" />
 
-<div class="recipe-card recipe-item" data-id="@Model.Id" data-title="@Model.Title" data-ingredients="@Model.Ingredients" data-instructions="@Model.Instructions" data-Image="@Model.Image">
+<div class="recipe-card recipe-item" data-id="@Model.Id" data-title="@Model.Title" data-ingredients='@System.Text.Json.JsonSerializer.Serialize(Model.Ingredients.Select(i => new { IngredientId = i.IngredientId, Name = i.Name, RecipeId = i.RecipeId }))' data-instructions="@Model.Instructions" data-Image="@Model.Image">
     <div class="recipe-image" style="background-image: url('@Model.Image');"></div>
     
     <div class="recipe-footer">

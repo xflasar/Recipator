@@ -9,7 +9,10 @@
     </div>
     <div class="recipe-view-main">
         <div class="recipe-view-main-ingredients">
-            <p>@Model.Ingredients</p>
+            @foreach (var ingredient in Model.Ingredients)
+            {
+              <p>@ingredient.Name</p>
+            }
         </div>
         <div class="recipe-view-main-instructions">
             <p>@Model.Instructions</p>

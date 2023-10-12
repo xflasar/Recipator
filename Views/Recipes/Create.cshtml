@@ -3,13 +3,16 @@
 
 <h1>Create Recipe</h1>
 
-<form asp-action="Create_Recipe" method="post">
+<form id="recipeForm" asp-action="Create" method="post">
     @Html.AntiForgeryToken()
     <div class="form-group">
         <h2>Title</h2>
         <input asp-for="Title" class="form-control" />
     </div>
+    <h2>Image</h2>
+    <input type="text" asp-for="Image" value="" placeholder="Image URL (https://imgur.com/34sfewt)" />
     <h2>Ingredients</h2>
+    <input type="hidden" name="ingredients" value="" />
     <div class="form-group" id="ingredientsContainer">
         <div class="ingredient-row">
             <input type="text" name="ingredient" class="ingredient-input" placeholder="Ingredient" />

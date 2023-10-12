@@ -2,20 +2,33 @@
 
 <h1>Update Recipe</h1>
 
-<form asp-action="Edit" method="post">
+<form id="recipeForm" asp-action="Edit" method="post">
     @Html.AntiForgeryToken()
     @Html.HiddenFor(Model => Model.Id)
     <div class="form-group">
-        <label asp-for="Title"></label>
+        <h2>Title</h2>
         <input asp-for="Title" class="form-control" />
     </div>
-    <div class="form-group">
-        <label asp-for="Ingredients"></label>
-        <textarea asp-for="Ingredients" class="form-control" rows="4"></textarea>
+    <h2>Image</h2>
+    <input type="text" asp-for="Image" placeholder="Image URL (https://imgur.com/34sfewt)" />
+    <h2>Ingredients</h2>
+    <input type="hidden" name="ingredients" value="" />
+    <div class="form-group" id="ingredientsContainer">
+        @foreach(var ingredient in Model.Ingredients)
+        {
+            <div class="ingredient-row">
+                <input type="hidden" id="ingredient-id" name="ingredient-id" value=@ingredient.IngredientId />
+                <input type="text" name="ingredient" class="ingredient-input" placeholder="Ingredient" value=@ingredient.Name />
+                <button type="button" class="remove-ingredient">X</button>
+            </div>
+        }
     </div>
+    <button type="button" id="addIngredient">Add Ingredient</button>
     <div class="form-group">
         <label asp-for="Instructions"></label>
         <textarea asp-for="Instructions" class="form-control" rows="6"></textarea>
     </div>
     <button type="submit" class="btn btn-primary">Update</button>
 </form>
+
+<script src="~/js/Recipe/Edit.js"></script>
